@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsLetter", "NewsLetter\NewsLetter.csproj", "{C1B56A0D-B1F2-4DCB-9D96-A670A992CA4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsLetter", "NewsLetter\NewsLetter.csproj", "{C1B56A0D-B1F2-4DCB-9D96-A670A992CA4C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10 Infrastructure", "10 Infrastructure", "{36620E23-99F1-460D-A8C6-92A00248C702}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "40 Domain Services", "40 Domain Services", "{209D30C8-B49B-4876-8516-DFC2745B3F0E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "40 Domain Services (Interfacer)", "40 Domain Services (Interfacer)", "{209D30C8-B49B-4876-8516-DFC2745B3F0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainServices.Core", "NewsLetterX.Core\DomainServices.Core.csproj", "{F64F01BC-807E-434E-AFB5-8F9F5DC16B76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainServices.Core", "NewsLetterX.Core\DomainServices.Core.csproj", "{F64F01BC-807E-434E-AFB5-8F9F5DC16B76}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "50 Domain model", "50 Domain model", "{234D01E4-9644-437C-A08F-A62A7CF1FBEA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "30 Application Services", "30 Application Services", "{7D9716BB-E8C2-460D-9148-234F5F1903E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationServices.Core", "ApplicationServices.Core\ApplicationServices.Core.csproj", "{0899048A-0504-4D7B-B7CF-B78600BF05EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationServices.Core", "ApplicationServices.Core\ApplicationServices.Core.csproj", "{0899048A-0504-4D7B-B7CF-B78600BF05EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModel.Core", "DomainModel.Core\DomainModel.Core.csproj", "{CD2BA68C-57B9-40FB-853A-E2C2E26C7D7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainModel.Core", "DomainModel.Core\DomainModel.Core.csproj", "{CD2BA68C-57B9-40FB-853A-E2C2E26C7D7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

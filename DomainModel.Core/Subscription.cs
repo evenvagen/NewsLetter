@@ -2,7 +2,7 @@
 
 namespace DomainModel.Core
 {
-    class Subscription : BaseEntity
+    public class Subscription : BaseEntity
     {
         public string Name { get; set; }
         public string Email { get; set; }

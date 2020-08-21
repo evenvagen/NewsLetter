@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DomainModel.Core
 {
-    class Email
+    public class Email
     {
         public string To { get; set; }
         public string From { get; set; }

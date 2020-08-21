@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DomainModel.Core
 {
-    class BaseEntity
+    public class BaseEntity
     {
         public Guid Id { get; set; }
 
