@@ -8,7 +8,7 @@ namespace DomainModel.Core
     {
         public Guid Id { get; set; }
 
-        public BaseEntity(Guid id)
+        public BaseEntity()
         {
             Id = Guid.NewGuid();
         }
