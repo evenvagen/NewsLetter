@@ -10,19 +10,19 @@ namespace ApplicationServices.Core
     public class SubscriptionService
     {
         private readonly IEmailService _emailService;
-        private readonly ISubsciptionRepository _subsciptionRepository;
+        private readonly ISubsciptionRepository _subscriptionRepository;
 
-        public SubscriptionService(IEmailService emailService, ISubsciptionRepository subsciptionRepository)
+        public SubscriptionService(IEmailService emailService, ISubsciptionRepository subscriptionRepository)
         {
             _emailService = emailService;
-            _subsciptionRepository = subsciptionRepository;
+            _subscriptionRepository = subscriptionRepository;
         }
 
 
         public async Task<bool> Subscribe(Subscription request)
         {
             var subscription = new Subscription(request.Name, request.Email);
-            var isCreated = await _subsciptionRepository.Create(subscription);
+            var isCreated = await _subscriptionRepository.Create(subscription);
             if (!isCreated) return false;
             var email = new ConfirmSubscriptionEmail(request.Email, "newsletterx@mail.net", subscription.VerificationCode);
             var isSent = await _emailService.Send(email);
@@ -31,13 +31,13 @@ namespace ApplicationServices.Core
 
         public async Task<bool> Verity(Subscription verificationRequest)
         {
-            var subscription = await _subsciptionRepository.ReadByEmail(verificationRequest.Email);
+            var subscription = await _subscriptionRepository.ReadByEmail(verificationRequest.Email);
             if (subscription == null || verificationRequest.VerificationCode != subscription.VerificationCode)
             {
                 return false;
             }
             subscription.IsVerified = true;
-            var hasUpdated = await _subsciptionRepository.Update(subscription);
+            var hasUpdated = await _subscriptionRepository.Update(subscription);
             return hasUpdated;
         }
     }
