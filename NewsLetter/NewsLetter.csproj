@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ApplicationServices.Core\ApplicationServices.Core.csproj" />
+    <ProjectReference Include="..\daInfrastructure\daInfrastructure.csproj" />
+    <ProjectReference Include="..\DomainModel.Core\DomainModel.Core.csproj" />
+    <ProjectReference Include="..\NewsLetterX.Core\DomainServices.Core.csproj" />
   </ItemGroup>
 
 
