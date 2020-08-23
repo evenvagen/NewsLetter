@@ -46,6 +46,8 @@ namespace NewsLetter
             {
                 endpoints.MapControllers();
             });
+
+            app.UseStaticFiles();
         }
     }
 }
