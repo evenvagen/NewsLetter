@@ -36,7 +36,7 @@ namespace daInfrastructure
 
         private static DatabaseModel MapToDb(Subscription subscription)
         {
-            return new DatabaseModel(subscription.Email);
+            return new DatabaseModel(subscription.Email, subscription.VerificationCode);
         }
 
         public Task<Subscription> ReadByEmail(string email)
