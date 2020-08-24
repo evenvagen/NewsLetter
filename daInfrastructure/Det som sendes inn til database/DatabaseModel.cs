@@ -7,12 +7,16 @@ namespace daInfrastructure
     class DatabaseModel
     {
         public string Email { get; set; }
-        public Guid ConfirmationGuid { get; set; }
+      
 
-        public DatabaseModel(string email, Guid confirmationGuid)
+        public DatabaseModel(string email)
         {
+            //Her kommer det som sendes inn i databasen, Guid, name?
             Email = email;
-            ConfirmationGuid = confirmationGuid;
+        }
+
+        public DatabaseModel()
+        {
         }
     }
 }
