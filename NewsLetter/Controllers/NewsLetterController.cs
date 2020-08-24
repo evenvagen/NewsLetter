@@ -27,5 +27,6 @@ namespace NewsLetter.Controllers
             return await _subscriptionService.Subscribe(subscription);
         }
 
+
     }
 }

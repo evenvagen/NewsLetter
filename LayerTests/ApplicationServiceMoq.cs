@@ -9,7 +9,7 @@ namespace LayerTests
 {
     public class Tests
     {
-        
+
         [Test]
         public async Task TestSubscription()
         {

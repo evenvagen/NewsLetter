@@ -29,7 +29,7 @@ namespace ApplicationServices.Core
             return isSent;
         }
 
-        public async Task<bool> Verity(Subscription verificationRequest)
+        public async Task<bool> Verify(Subscription verificationRequest)
         {
             var subscription = await _subscriptionRepository.ReadByEmail(verificationRequest.Email);
             if (subscription == null || verificationRequest.VerificationCode != subscription.VerificationCode)

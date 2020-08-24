@@ -20,5 +20,6 @@ namespace DomainModel.Core
             Email = email;
             VerificationCode = verificationCode ?? Guid.NewGuid().ToString();
         }
+
     }
 }
