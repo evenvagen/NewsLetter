@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using DomainModel.Core;
@@ -9,9 +10,16 @@ namespace daInfrastructure
 {
     class SubscriptionRepository : ISubsciptionRepository
     {
+
+        private readonly string _connectionString;
+
+        public SubscriptionRepository(ConnectionString connectionString)
+        {
+            _connectionString = connectionString.Value;
+        }
+
         public Task<bool> Create(Subscription subscription)
         {
-            //SQLconn??
             return Task.FromResult(true);
         }
 
