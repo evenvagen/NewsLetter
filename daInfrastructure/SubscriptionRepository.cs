@@ -23,7 +23,7 @@ namespace daInfrastructure
         {
             await using var conn = new SqlConnection(_connectionString);
 
-            const string insert = @"INSERT INTO NewsLetter (Email, ConfirmationGuid) VALUES (@Email, @ConfirmationGuid)";
+            const string insert = @"INSERT INTO NewsLetter (Email, Id) VALUES (@Email, @Id)";
 
             var newsLetter = MapToDb(subscription);
 

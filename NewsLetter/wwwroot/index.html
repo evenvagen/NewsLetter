@@ -9,10 +9,10 @@
 
 <script>
 
-    subscribe("even@mail.net");
+    subscribe();
 
-    async function subscribe(email) {
-        let result = await axios.post('/api/NewsLetter', email);
+    async function subscribe() {
+        let result = await axios.post('/api/newsletter', {Email: "even@mail.net"});
         console.log(result.data);
     }
 
