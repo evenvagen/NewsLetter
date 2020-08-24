@@ -9,7 +9,7 @@ using DomainServices.Core;
 
 namespace daInfrastructure
 {
-    class SubscriptionRepository : ISubsciptionRepository
+    public class SubscriptionRepository : ISubsciptionRepository
     {
 
         private readonly string _connectionString;

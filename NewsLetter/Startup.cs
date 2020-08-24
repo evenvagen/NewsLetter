@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApplicationServices.Core;
+using daInfrastructure;
 using DomainModel.Core;
+using DomainServices.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,7 +36,14 @@ namespace NewsLetter
             var connectionString = new ConnectionString(value);
 
             services.AddControllers();
-            services.AddSingleton<ConnectionString>(connectionString);
+            services.AddSingleton(connectionString);
+
+
+            //Her
+            services.AddControllers();
+            services.AddScoped<ISubsciptionRepository, SubscriptionRepository>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<SubscriptionService>();
 
         }
 
