@@ -21,7 +21,7 @@ namespace NewsLetter.Controllers
         public async Task<bool> Subscribe(SubscriptionViewModel subscriptionInput)
         {
 
-            var subscription = new Subscription { Name = subscriptionInput.Name , Email = subscriptionInput.Email, Id = subscriptionInput.Id, IsVerified = subscriptionInput.IsVerified};
+            var subscription = new Subscription { Name = subscriptionInput.Name , Email = subscriptionInput.Email };
             return await _subscriptionService.Subscribe(subscription);
         }
 
