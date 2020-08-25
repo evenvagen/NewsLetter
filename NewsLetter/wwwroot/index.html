@@ -12,22 +12,31 @@
 
 <input type="text" id="name" placeholder="Navn" /> <br/>
 <input type="text" id="email" placeholder="Epost" /> <br/>
-    <input type="button" value="Meld på" onclick="subscribe()" />
+<input type="button" value="Meld på" onclick="subscribe()" /> <br/>
 
-    <script>
+<tt style="color:blue" id="wentok"></tt>
 
-
-        async function subscribe() {
-
-            var nameInput = document.getElementById("name").value.toString();
-            var emailInput = document.getElementById("email").value.toString();
+<script>
 
 
-            let result = await axios.post('/api/newsletter', { name: nameInput, email: emailInput });
+    async function subscribe() {
+
+        var nameInput = document.getElementById("name").value.toString();
+        var emailInput = document.getElementById("email").value.toString();
 
 
-            console.log(result.config.data);
-            console.log(result.data);
+        let result = await axios.post('/api/newsletter', { name: nameInput, email: emailInput });
+
+        if (result.status === 200 || result.status === 201 || result.status === 202 || result.status === 204) {
+                document.getElementById("wentok").innerHTML = "Registrert! Sjekk epost for å verifisere";
+            } else {
+                document.getElementById("wentok").innerHTML = "nooo";
+        }
+
+        //fixHere
+
+
+            console.log(result);
 
         }
 

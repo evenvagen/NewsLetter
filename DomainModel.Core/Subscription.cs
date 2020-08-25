@@ -17,7 +17,7 @@ namespace DomainModel.Core
         public Subscription(string name, string email, string verificationCode = null)
         {
             Name = name;
-            Email = email ?? "null@mail.net";
+            Email = email;
             VerificationCode = verificationCode ?? Guid.NewGuid().ToString();
         }
 
