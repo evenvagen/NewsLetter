@@ -7,17 +7,26 @@
 </head>
 <body>
 
+
+    <input type="text" id="userInput" />
+    <input type="button" value="Legg til" onclick="subscribe()" />
+
 <script>
 
-    subscribe();
 
     async function subscribe() {
-        let result = await axios.post('/api/newsletter', { Email: "evenvagen@gmail.com", Id: "2bf9f254-0182-4ce6-80dc-aaa78da4f136"});
-        console.log(result.data);
-    }
+
+        var input = document.getElementById("userInput").value;
+
+        var string = input.toString();
+        let result = await axios.post('/api/newsletter', { email: string });
+        console.log(result.config.data);
+
+        console.log(input);
+        }
 
 
-</script>
+    </script>
 
 </body>
 </html>

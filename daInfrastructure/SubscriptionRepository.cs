@@ -27,7 +27,7 @@ namespace daInfrastructure
 
             var newsLetter = MapToDb(subscription);
 
-           var result = await conn.ExecuteAsync(insert, newsLetter);
+            var result = await conn.ExecuteAsync(insert, subscription);
 
            return result == 1;
 

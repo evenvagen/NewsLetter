@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using ApplicationServices.Core;
 using DomainModel.Core;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SubscriptionViewModel=NewsLetter.ViewModel.Subscription;
 
 namespace NewsLetter.Controllers
 {
@@ -21,9 +18,9 @@ namespace NewsLetter.Controllers
         }
 
         [HttpPost]
-        public async Task<bool> Subscribe(string email)
+        public async Task<bool> Subscribe(SubscriptionViewModel subscriptionInput)
         {
-            var subscription = new Subscription { Email = email };
+            var subscription = new Subscription { Email = subscriptionInput.Email };
             return await _subscriptionService.Subscribe(subscription);
         }
 
