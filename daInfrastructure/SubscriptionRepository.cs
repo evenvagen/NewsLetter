@@ -23,11 +23,11 @@ namespace daInfrastructure
         {
             await using var conn = new SqlConnection(_connectionString);
 
-            const string insert = @"INSERT INTO NewsLetter (Email, Id) VALUES (@Email, @Id)";
+            const string insert = @"INSERT INTO NewsLetter (Name ,Email, Id, IsVerified) VALUES (@Name, @Email, @Id, @IsVerified)";
 
             var newsLetter = MapToDb(subscription);
 
-            var result = await conn.ExecuteAsync(insert, subscription);
+            var result = await conn.ExecuteAsync(insert, newsLetter);
 
            return result == 1;
 
@@ -36,7 +36,9 @@ namespace daInfrastructure
 
         private static DatabaseModel MapToDb(Subscription subscription)
         {
-            return new DatabaseModel(subscription.Email, subscription.VerificationCode);
+            
+            return new DatabaseModel(subscription.Email, subscription.VerificationCode, subscription.Name, subscription.IsVerified);
+
         }
 
         public Task<Subscription> ReadByEmail(string email)

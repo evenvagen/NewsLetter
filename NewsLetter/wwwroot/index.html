@@ -7,23 +7,43 @@
 </head>
 <body>
 
-
-    <input type="text" id="userInput" />
-    <input type="button" value="Legg til" onclick="subscribe()" />
-
-<script>
+<h1>Meld deg på nyhetsbrev!</h1>    
 
 
-    async function subscribe() {
+<input type="text" id="name" placeholder="Navn" /> <br/>
+<input type="text" id="email" placeholder="Epost" /> <br/>
+    <input type="button" value="Meld på" onclick="subscribe()" />
 
-        var input = document.getElementById("userInput").value;
+    <script>
 
-        var string = input.toString();
-        let result = await axios.post('/api/newsletter', { email: string });
-        console.log(result.config.data);
 
-        console.log(input);
+        async function subscribe() {
+
+            var nameInput = document.getElementById("name").value.toString();
+            var emailInput = document.getElementById("email").value.toString();
+
+
+            let result = await axios.post('/api/newsletter', { name: nameInput, email: emailInput });
+
+
+            console.log(result.config.data);
+            console.log(result.data);
+
         }
+
+
+        //test();
+
+        //async function test() {
+        //    var subscribe = {
+        //        name: "even",
+        //        email: "even@notverified.no"
+        //    }
+
+        //    var result = await axios.post('api/newsletter', subscribe);
+
+        //    console.log(result);
+        //}
 
 
     </script>

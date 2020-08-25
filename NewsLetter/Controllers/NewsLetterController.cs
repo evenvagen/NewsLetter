@@ -20,11 +20,10 @@ namespace NewsLetter.Controllers
         [HttpPost]
         public async Task<bool> Subscribe(SubscriptionViewModel subscriptionInput)
         {
-            var subscription = new Subscription { Email = subscriptionInput.Email };
+
+            var subscription = new Subscription { Name = subscriptionInput.Name , Email = subscriptionInput.Email, Id = subscriptionInput.Id, IsVerified = subscriptionInput.IsVerified};
             return await _subscriptionService.Subscribe(subscription);
         }
-
-
 
 
     }

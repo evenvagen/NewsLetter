@@ -22,6 +22,9 @@ namespace ApplicationServices.Core
         public async Task<bool> Subscribe(Subscription request)
         {
             var subscription = new Subscription(request.Name, request.Email);
+            subscription.IsVerified = true;
+
+
             var isCreated = await _subscriptionRepository.Create(subscription);
             if (!isCreated) return false;
             var email = new ConfirmSubscriptionEmail(request.Email, "newsletterx@mail.net", subscription.VerificationCode);
