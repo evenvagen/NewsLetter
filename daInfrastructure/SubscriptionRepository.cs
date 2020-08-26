@@ -33,6 +33,7 @@ namespace daInfrastructure
 
         }
 
+
         private static DatabaseModel MapToDb(Subscription subscription)
         {
             return new DatabaseModel(subscription.Email, subscription.VerificationCode, subscription.Name, subscription.IsVerified);

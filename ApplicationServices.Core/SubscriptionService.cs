@@ -43,5 +43,6 @@ namespace ApplicationServices.Core
             var hasUpdated = await _subscriptionRepository.Update(subscription);
             return hasUpdated;
         }
+
     }
 }

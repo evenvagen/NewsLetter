@@ -27,9 +27,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "15 Database.Infrastructure"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "daInfrastructure", "daInfrastructure\daInfrastructure.csproj", "{F3FD9724-05ED-4D80-9447-862CAD6168D7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "13Test", "13Test", "{B1F0008A-6988-4BAB-8657-9CDA5D3FE643}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "95Test", "95Test", "{B1F0008A-6988-4BAB-8657-9CDA5D3FE643}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModelTests", "DomainModelTests\DomainModelTests.csproj", "{1D1B6C9B-59F8-492E-A88A-01BAEAE7D38D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainModelTests", "DomainModelTests\DomainModelTests.csproj", "{1D1B6C9B-59F8-492E-A88A-01BAEAE7D38D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

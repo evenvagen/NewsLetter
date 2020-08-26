@@ -18,12 +18,19 @@ namespace NewsLetter.Controllers
         }
 
         [HttpPost]
-        public async Task<bool> Subscribe(SubscriptionViewModel subscriptionInput)
+        public async Task<bool> SubscribeToNewsletter(SubscriptionViewModel subscriptionInput)
         {
             var subscription = new Subscription { Name = subscriptionInput.Name , Email = subscriptionInput.Email , VerificationCode = subscriptionInput.Id };
             return await _subscriptionService.Subscribe(subscription);
         }
 
-        //Lage en get her
+        [HttpGet]
+        public async Task<SubscriptionViewModel> StartGame()
+        {
+            var game = await _subscriptionService.Read();
+            return ViewModelFromDomainModel(game);
+        }
+
+
     }
 }
