@@ -28,6 +28,8 @@
         document.getElementById("wentok").innerHTML = "...";
 
 
+
+
         let result = await axios.post('/api/newsletter', { name: nameInput, email: emailInput });
 
         if (result.status === 200 || result.status === 201 || result.status === 202 || result.status === 204) {
@@ -37,19 +39,6 @@
 
         }
 
-
-        //test();
-
-        //async function test() {
-        //    var subscribe = {
-        //        name: "even",
-        //        email: "even@notverified.no"
-        //    }
-
-        //    var result = await axios.post('api/newsletter', subscribe);
-
-        //    console.log(result);
-        //}
 
 
     </script>
