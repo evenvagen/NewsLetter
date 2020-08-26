@@ -1,1 +1,0 @@
-Du må slette tabellen i NewsLetterDB og lage en ny der du sernder inn Id, og email istedenfor Verificationcode.
