@@ -1,4 +1,5 @@
 ﻿using System;
+using ApplicationServices.Core;
 using DomainModel.Core;
 
 namespace DomainModelTests
