@@ -13,6 +13,5 @@ namespace DomainModel.Core
             Text = $"<a href=\"{url}\">Klikk her for å bekrefte</a>";
         }
 
-
     }
 }
