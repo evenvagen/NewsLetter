@@ -21,7 +21,7 @@ namespace ApplicationServices.Core
 
         public async Task<bool> Subscribe(Subscription request)
         {
-            var subscription = new Subscription(request.Name, request.Email, "14690972-f3a9-480d-b08a-a42dc93e4c8d");
+            var subscription = new Subscription(request.Name, request.Email, request.VerificationCode);
             subscription.IsVerified = true;
 
 
