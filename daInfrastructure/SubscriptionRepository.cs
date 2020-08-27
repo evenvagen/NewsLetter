@@ -25,7 +25,7 @@ namespace daInfrastructure
         {
             await using var conn = new SqlConnection(_connectionString);
 
-            const string insert = @"INSERT INTO NewsLetter (Name ,Email, Id, IsVerified) VALUES (@Name, @Email, @Id, @IsVerified)";
+            const string insert = @"INSERT INTO NewsLetter (Name ,Email, Id, IsVerified, VerificationCode) VALUES (@Name, @Email, @Id, @IsVerified, @VerificationCode)";
 
             var newsLetter = MapToDb(subscription);
 
@@ -49,17 +49,31 @@ namespace daInfrastructure
 
         private static DatabaseModel MapToDb(Subscription subscription)
         {
-            return new DatabaseModel(subscription.Email, subscription.VerificationCode, subscription.Name, subscription.IsVerified);
+            return new DatabaseModel(subscription.Email, subscription.Id, subscription.Name, subscription.IsVerified, subscription.VerificationCode);
         }
 
-        public Task<Subscription> ReadByEmail(string email)
+        public async Task<Subscription> ReadByEmail(string email)
         {
-            throw new NotImplementedException();
+            await using var conn = new SqlConnection(_connectionString);
+            const string insert = @"SELECT VerificationCode FROM NewsLetter WHERE Email = @Email";
+            var result = await conn.QueryAsync<DatabaseModel>(insert, new { Email = email });
+            var gameModel = result.SingleOrDefault();
+
+            return new Subscription(gameModel.Name, gameModel.Email, gameModel.VerificationCode);
         }
 
-        public Task<bool> Update(Subscription subscription)
+        public async Task<bool> Update(Subscription subscription)
         {
-            throw new NotImplementedException();
+            await using var conn = new SqlConnection(_connectionString);
+
+            const string insert = @"UPDATE NewsLetter 
+            SET IsVerified = '1' Where Name = @Name";
+
+            var newsLetter = MapToDb(subscription);
+
+            var result = await conn.ExecuteAsync(insert, newsLetter);
+
+            return result == 1;
         }
     }
 }

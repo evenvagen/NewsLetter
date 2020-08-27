@@ -33,5 +33,13 @@ namespace NewsLetter.Controllers
         }
 
 
+        [HttpPut]
+        public async Task<bool> Update()
+        {
+            var subscription = new Subscription("Even", "even@mail.net");
+            return await _subscriptionService.Verify(subscription);
+        }
+
+
     }
 }

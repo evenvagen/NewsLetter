@@ -12,5 +12,6 @@ namespace DomainServices.Core
         Task<Subscription> ReadByEmail(string email);
         Task<bool> Update(Subscription subscription);
         Task<Subscription> Read(string name);
+
     }
 }
