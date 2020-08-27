@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using DomainModel.Core;
 using DomainServices.Core;
+using DomainModel = daInfrastructure.DBModel.DomainModel;
 
 namespace daInfrastructure
 {
@@ -31,6 +33,17 @@ namespace daInfrastructure
 
            return result == 1;
 
+        }
+
+
+        public async Task<Subscription> Read(string name)
+        {
+            await using var conn = new SqlConnection(_connectionString);
+            const string insert = @"SELECT Name, Email FROM NewsLetter WHERE Name = @Name";
+            var result = await conn.QueryAsync<DatabaseModel>(insert, new {Name = name});
+            var gameModel = result.SingleOrDefault();
+
+            return new Subscription(gameModel.Name, gameModel.Email);
         }
 
 

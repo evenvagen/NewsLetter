@@ -44,5 +44,10 @@ namespace ApplicationServices.Core
             return hasUpdated;
         }
 
+        public async Task<Subscription> GetUser(string name)
+        {
+            return await _subscriptionRepository.Read(name);
+        }
+
     }
 }

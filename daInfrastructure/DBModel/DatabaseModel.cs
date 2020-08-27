@@ -19,5 +19,10 @@ namespace daInfrastructure
             Name = name;
             IsVerified = isVerified;
         }
+
+        public DatabaseModel()
+        {
+            
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using ApplicationServices.Core;
 using DomainModel.Core;
 using Microsoft.AspNetCore.Mvc;
@@ -20,15 +21,15 @@ namespace NewsLetter.Controllers
         [HttpPost]
         public async Task<bool> SubscribeToNewsletter(SubscriptionViewModel subscriptionInput)
         {
-            var subscription = new Subscription { Name = subscriptionInput.Name , Email = subscriptionInput.Email , VerificationCode = subscriptionInput.Id };
+            var subscription = new Subscription { Name = subscriptionInput.Name , Email = subscriptionInput.Email };
             return await _subscriptionService.Subscribe(subscription);
         }
 
-        [HttpGet]
-        public async Task<SubscriptionViewModel> StartGame()
+        [HttpGet("{Name}")]
+        public async Task<SubscriptionViewModel> Read(string name)
         {
-            var game = await _subscriptionService.Read();
-            return ViewModelFromDomainModel(game);
+            var getUser = await _subscriptionService.GetUser(name);
+            return new SubscriptionViewModel(getUser.Name, getUser.Email);
         }
 
 
