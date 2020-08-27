@@ -46,28 +46,28 @@ namespace daInfrastructure
             return new Subscription(gameModel.Name, gameModel.Email);
         }
 
+        public async Task<Subscription> ReadByEmail(string email)
+        {
+            await using var conn = new SqlConnection(_connectionString);
+            const string insert = @"SELECT Name, Email, VerificationCode FROM Registrations WHERE Email = @Email";
+            var models = await conn.QueryAsync<DatabaseModel>(insert, new { Email = email });
+            var gameModel = models.SingleOrDefault();
+
+            return new Subscription(gameModel.Name, gameModel.Email);
+        }
 
         private static DatabaseModel MapToDb(Subscription subscription)
         {
             return new DatabaseModel(subscription.Email, subscription.Id, subscription.Name, subscription.IsVerified, subscription.VerificationCode);
         }
 
-        public async Task<Subscription> ReadByEmail(string email)
-        {
-            await using var conn = new SqlConnection(_connectionString);
-            const string insert = @"SELECT VerificationCode FROM NewsLetter WHERE Email = @Email";
-            var result = await conn.QueryAsync<DatabaseModel>(insert, new { Email = email });
-            var gameModel = result.SingleOrDefault();
-
-            return new Subscription(gameModel.Name, gameModel.Email, gameModel.VerificationCode);
-        }
 
         public async Task<bool> Update(Subscription subscription)
         {
             await using var conn = new SqlConnection(_connectionString);
 
             const string insert = @"UPDATE NewsLetter 
-            SET IsVerified = '1' Where Name = 'Joe'";
+            SET IsVerified = '1' Where VerificationCode = @VerificationCode";
 
             var newsLetter = MapToDb(subscription);
 

@@ -46,6 +46,13 @@
 
     }
 
+
+    async function verifyUser() {
+
+        let result = await axois.patch('api/newsletter', { name: "hei", email: "hei" });
+
+        console.log(result);
+    }
    
 
     async function simpleUserSearch() {
