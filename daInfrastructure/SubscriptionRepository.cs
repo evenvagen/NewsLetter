@@ -67,7 +67,7 @@ namespace daInfrastructure
             await using var conn = new SqlConnection(_connectionString);
 
             const string insert = @"UPDATE NewsLetter 
-            SET IsVerified = '1' Where Name = @Name";
+            SET IsVerified = '1' Where Name = 'Joe'";
 
             var newsLetter = MapToDb(subscription);
 
