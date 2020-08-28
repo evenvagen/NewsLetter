@@ -9,6 +9,7 @@ namespace NewsLetter.ViewModel
     {
         public string Name { get; set; }
         public string Email { get; set; }
+        public string VerificationCode { get; set; }
 
 
         public Subscription(string name, string email)

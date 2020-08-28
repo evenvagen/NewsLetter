@@ -21,7 +21,7 @@ namespace NewsLetter.Controllers
         [HttpPost]
         public async Task<bool> SubscribeToNewsletter(SubscriptionViewModel subscriptionInput)
         {
-            var subscription = new Subscription { Name = subscriptionInput.Name , Email = subscriptionInput.Email };
+            var subscription = new Subscription { Name = subscriptionInput.Name , Email = subscriptionInput.Email, VerificationCode = subscriptionInput.VerificationCode};
             return await _subscriptionService.Subscribe(subscription);
         }
 
@@ -36,10 +36,9 @@ namespace NewsLetter.Controllers
         [HttpPatch]
         public async Task<bool> Update(SubscriptionViewModel subscriptionInput)
         {
-            var subscription = new Subscription { Name = subscriptionInput.Name, Email = subscriptionInput.Email };
+            var subscription = new Subscription { Name = subscriptionInput.Name, Email = subscriptionInput.Email, VerificationCode = subscriptionInput.VerificationCode};
             return await _subscriptionService.Verify(subscription);
         }
-
 
     }
 }

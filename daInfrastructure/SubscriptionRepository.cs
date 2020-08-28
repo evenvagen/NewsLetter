@@ -39,8 +39,8 @@ namespace daInfrastructure
         public async Task<Subscription> Read(string name)
         {
             await using var conn = new SqlConnection(_connectionString);
-            const string insert = @"SELECT Name, Email FROM NewsLetter WHERE Name = @Name";
-            var result = await conn.QueryAsync<DatabaseModel>(insert, new {Name = name});
+            const string read = @"SELECT Name, Email FROM NewsLetter WHERE Name = @Name";
+            var result = await conn.QueryAsync<DatabaseModel>(read, new {Name = name});
             var gameModel = result.SingleOrDefault();
 
             return new Subscription(gameModel.Name, gameModel.Email);
@@ -49,10 +49,11 @@ namespace daInfrastructure
         public async Task<Subscription> ReadByEmail(string email)
         {
             await using var conn = new SqlConnection(_connectionString);
-            const string insert = @"SELECT Name, Email, VerificationCode FROM Registrations WHERE Email = @Email";
-            var models = await conn.QueryAsync<DatabaseModel>(insert, new { Email = email });
+            const string update = @"SELECT * FROM NewsLetter WHERE Email = @Email";
+            var models = await conn.QueryAsync<DatabaseModel>(update, new { Email = email });
             var gameModel = models.SingleOrDefault();
 
+            //verCode
             return new Subscription(gameModel.Name, gameModel.Email);
         }
 

@@ -4,71 +4,17 @@
     <meta charset="UTF-8">
     <title>title</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="subscribe.js"></script>
+    <script src="verify.js"></script>
+    <script src="users.js"></script>
 </head>
 <body>
 
-<h1>Meld deg på nyhetsbrev!</h1>    
 
-
-<input type="text" id="name" placeholder="Navn" /> <br/>
-<input type="text" id="email" placeholder="Epost" /> <br/>
-<input type="button" value="Meld på" onclick="subscribe()" /> <br/>
-
-<tt style="color:blue" id="wentok"></tt>
-    
-    
-<br/>
-    
-<input type="text" id="userSearch" value="hello"/> <br/>
-<button onclick="simpleUserSearch()">Søk opp!</button><br/>
-<tt id ="userInfo"></tt>
-
-
-
-
+<div id="app"></div>
 <script>
-
-
-    async function subscribe() {
-
-
-        var nameInput = document.getElementById("name").value;
-        var emailInput = document.getElementById("email").value;
-
-        document.getElementById("wentok").innerHTML = "...";
-
-        const result = await axios.post('/api/newsletter', { name: nameInput, email: emailInput });
-
-        if (result.status === 200 || result.status === 201 || result.status === 202 || result.status === 204) {
-                document.getElementById("wentok").innerHTML = "Registrert! Sjekk epost for å verifisere";
-        }
-            console.log(result);
-
-    }
-
-
-    async function verifyUser() {
-
-        let result = await axois.patch('api/newsletter', { name: "hei", email: "hei" });
-
-        console.log(result);
-    }
-   
-
-    async function simpleUserSearch() {
-
-        const nameInput = document.getElementById("userSearch").value;
-        let res = await axios.get('api/newsletter/' + nameInput);
-
-
-        let getData = res.data.email;
-        document.getElementById("userInfo").innerHTML = getData;
-
-    }
-
-
-
-    </script>
+    htmlView();
+</script>
 
 </body>
 </html>
