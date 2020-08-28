@@ -11,7 +11,7 @@
 
 
 <div id="verifyCheck">
-<input type="text" id="userSearch" value="hello"/> <br/>
+<input type="text" id="userSearch" placeholder="Navn"/> <br/>
 <button onclick="simpleUserSearch()">Søk opp!</button><br/>
 <tt id ="userInfo"></tt>
 </div>
