@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsLetter", "NewsLetter\NewsLetter.csproj", "{C1B56A0D-B1F2-4DCB-9D96-A670A992CA4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsLetterApi", "NewsLetter\NewsLetterApi.csproj", "{C1B56A0D-B1F2-4DCB-9D96-A670A992CA4C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10 Infrastructure", "10 Infrastructure", "{36620E23-99F1-460D-A8C6-92A00248C702}"
 EndProject
