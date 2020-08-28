@@ -38,13 +38,13 @@ namespace NewsLetter
             services.AddControllers();
             services.AddSingleton(connectionString);
 
-
-            //Her
             services.AddControllers();
             services.AddScoped<ISubsciptionRepository, SubscriptionRepository>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<SubscriptionService>();
 
+            //ApiTest
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,6 +67,10 @@ namespace NewsLetter
             });
 
             app.UseStaticFiles();
+
+            app.UseOpenApi();
+
+            app.UseSwaggerUi3();
         }
     }
 }
