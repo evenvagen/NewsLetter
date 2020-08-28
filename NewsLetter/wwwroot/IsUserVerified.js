@@ -4,7 +4,10 @@
     let res = await axios.get('api/newsletter/' + nameInput);
 
 
-    let getData = res.data.email;
+    let getData = res.data.isVerified;
+
+    console.log(res.data);
+
     document.getElementById("userInfo").innerHTML = getData;
 
 }

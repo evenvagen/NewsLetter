@@ -1,0 +1,22 @@
+﻿#registrer {
+    text-align: center;
+    padding-top: 100px;
+    height: 200px;
+    width: 200px;
+    background-color: gray;
+}
+
+.verifyButton {
+    height: 50px;
+    width: 70px;
+    background-color: green;
+}
+
+#verifyCheck {
+    text-align: center;
+    padding-top: 100px;
+    height: 200px;
+    width: 200px;
+    background-color: gray;
+    clear: left;
+}

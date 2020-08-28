@@ -39,11 +39,16 @@ namespace daInfrastructure
         public async Task<Subscription> Read(string name)
         {
             await using var conn = new SqlConnection(_connectionString);
-            const string read = @"SELECT Name, Email FROM NewsLetter WHERE Name = @Name";
+            const string read = @"SELECT Name, Email, IsVerified FROM NewsLetter WHERE Name = @Name";
             var result = await conn.QueryAsync<DatabaseModel>(read, new {Name = name});
             var gameModel = result.SingleOrDefault();
 
-            return new Subscription(gameModel.Name, gameModel.Email);
+            return new Subscription
+            {
+                Email = gameModel.Email,
+                Name = gameModel.Name,
+                IsVerified = gameModel.IsVerified,
+            };
         }
 
         public async Task<Subscription> ReadByEmail(string email)
@@ -54,7 +59,7 @@ namespace daInfrastructure
             var gameModel = models.SingleOrDefault();
 
             //verCode
-            return new Subscription(gameModel.Name, gameModel.Email);
+            return new Subscription {VerificationCode = gameModel.VerificationCode};
         }
 
         private static DatabaseModel MapToDb(Subscription subscription)

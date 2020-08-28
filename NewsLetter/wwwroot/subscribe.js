@@ -1,21 +1,4 @@
-﻿function htmlView() {
-    document.getElementById("app").innerHTML = `
- <input type="text" id="name" placeholder="Navn" /> <br/>
- <input type="text" id="email" placeholder="Epost" /> <br/>
- <input type="button" value="Meld på" onclick="subscribe()" /> <br/>
-
- <tt style="color:blue" id="wentok"></tt>
-<br/>
-    
-<input type="text" id="userSearch" value="hello"/> <br/>
-<button onclick="simpleUserSearch()">Søk opp!</button><br/>
-<tt id ="userInfo"></tt>
-<br/>
-<button onclick="verifyUser()">Verifiser hardkoda bruker!</button>`;
-}
-
-
-async function subscribe() {
+﻿async function subscribe() {
 
     var nameInput = document.getElementById("name").value;
     var emailInput = document.getElementById("email").value;

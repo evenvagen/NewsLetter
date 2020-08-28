@@ -29,7 +29,12 @@ namespace NewsLetter.Controllers
         public async Task<SubscriptionViewModel> Read(string name)
         {
             var getUser = await _subscriptionService.GetUser(name);
-            return new SubscriptionViewModel(getUser.Name, getUser.Email);
+            return new SubscriptionViewModel
+            {
+                Email = getUser.Email,
+                Name = getUser.Name,
+                IsVerified = getUser.IsVerified,
+            };
         }
 
 

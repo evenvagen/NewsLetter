@@ -4,13 +4,13 @@
         method: 'patch',
         url: '/api/newsletter',
         data: {
-            name: "testuser",
-            email: "testuser@mail.net",
-            VerificationCode: "f262bfb3-a43e-4b25-bbc2-4656a57989ca"
+            name: "johnny",
+            email: "johnny@gmail.com",
+            verificationCode: "4b08e113-1ffd-4e3f-91a6-ce4fe2c027ff"
         }
     });
 
     if (result.data === true) {
-        console.log("Brukeren er verifisert");
+        document.getElementById("verified").innerHTML = "<br/>" + "Brukeren er verifisert";
     }
 }

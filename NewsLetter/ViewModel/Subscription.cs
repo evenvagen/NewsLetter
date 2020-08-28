@@ -11,6 +11,8 @@ namespace NewsLetter.ViewModel
         public string Email { get; set; }
         public string VerificationCode { get; set; }
 
+        public bool IsVerified { get; set; }
+
 
         public Subscription(string name, string email)
         {
