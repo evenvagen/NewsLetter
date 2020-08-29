@@ -24,4 +24,10 @@ async function ConfirmSubscription() {
         }
     });
 
-}
+
+        if(response.data === true) {
+            document.getElementById("app").innerHTML = `
+            <h1>YIIIIHA! :O</h1> `;
+        }
+
+    };
