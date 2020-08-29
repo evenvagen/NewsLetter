@@ -40,7 +40,7 @@ namespace daInfrastructure
         {
             await using var conn = new SqlConnection(_connectionString);
             const string read = @"SELECT Name, Email, IsVerified FROM NewsLetter WHERE Name = @Name";
-            var result = await conn.QueryAsync<DatabaseModel>(read, new {Name = name});
+            var result = await conn.QueryAsync<ToDataBase>(read, new {Name = name});
             var gameModel = result.SingleOrDefault();
 
             return new Subscription
@@ -55,16 +55,16 @@ namespace daInfrastructure
         {
             await using var conn = new SqlConnection(_connectionString);
             const string update = @"SELECT * FROM NewsLetter WHERE Email = @Email";
-            var models = await conn.QueryAsync<DatabaseModel>(update, new { Email = email });
+            var models = await conn.QueryAsync<ToDataBase>(update, new { Email = email });
             var gameModel = models.SingleOrDefault();
 
             //verCode
             return new Subscription {VerificationCode = gameModel.VerificationCode};
         }
 
-        private static DatabaseModel MapToDb(Subscription subscription)
+        private static ToDataBase MapToDb(Subscription subscription)
         {
-            return new DatabaseModel(subscription.Email, subscription.Id, subscription.Name, subscription.IsVerified, subscription.VerificationCode);
+            return new ToDataBase(subscription.Email, subscription.Id, subscription.Name, subscription.IsVerified, subscription.VerificationCode);
         }
 
 

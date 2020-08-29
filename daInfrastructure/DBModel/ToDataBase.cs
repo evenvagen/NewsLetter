@@ -4,7 +4,7 @@ using System.Text;
 
 namespace daInfrastructure
 {
-    public class DatabaseModel
+    public class ToDataBase
     {
         public string Email { get; set; }
         public Guid Id { get; set; }
@@ -14,7 +14,7 @@ namespace daInfrastructure
         public string VerificationCode { get; set; }
 
 
-        public DatabaseModel(string email, Guid id, string name, bool isVerified, string verificationCode)
+        public ToDataBase(string email, Guid id, string name, bool isVerified, string verificationCode)
         {
             Email = email;
             Id = id;
@@ -23,7 +23,7 @@ namespace daInfrastructure
             VerificationCode = verificationCode;
         }
 
-        public DatabaseModel()
+        public ToDataBase()
         {
             
         }
