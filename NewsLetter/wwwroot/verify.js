@@ -1,16 +1,27 @@
-﻿async function verifyUser() {
+﻿
+if (window.location.search.includes("email") && window.location.search.includes("code") && window.location.search.includes("name")) {
+    ConfirmSubscription();
+}
 
-    var result = await axios({
+
+async function ConfirmSubscription() {
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    const Email = urlParams.get("email");
+    const code = urlParams.get("code");
+    const Name = urlParams.get("name");
+
+
+    var response = await axios({
         method: 'patch',
         url: '/api/newsletter',
         data: {
-            name: "johnny",
-            email: "johnny@gmail.com",
-            verificationCode: "4b08e113-1ffd-4e3f-91a6-ce4fe2c027ff"
+            name: Name,
+            email: Email,
+            verificationCode: code
         }
     });
 
-    if (result.data === true) {
-        document.getElementById("verified").innerHTML = "<br/>" + "Brukeren er verifisert";
-    }
 }

@@ -14,7 +14,7 @@ namespace daInfrastructure
 
             var client = new SendGridClient("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");
             var from = new EmailAddress(email.From);
-            var subject = email.Subject;
+            var subject = "Bekreft nyhetsbrev-abonnent!";
             var to = new EmailAddress(email.To);
             var plainTextContent = "Email subscription";
             var htmlContent = email.Text;

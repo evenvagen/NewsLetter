@@ -24,7 +24,7 @@ namespace ApplicationServices.Core
             var subscription = new Subscription(request.Name, request.Email, request.VerificationCode);
             var isCreated = await _subscriptionRepository.Create(subscription);
             if (!isCreated) return false;
-            var url = $"https://localhost:44300/index.html?email={subscription.Email}&code={subscription.VerificationCode}";
+            var url = $"https://localhost:44300/index.html?email={subscription.Email}&code={subscription.VerificationCode}&name={subscription.Name}";
             var text = $"Hello {request.Name}! <a href=\"{url}\">Click here to confirm subscription!";
             var email = new Email(request.Email, "evenvagen@hotmail.com", subscription.VerificationCode, text);
             var isSent = await _emailService.Send(email);
