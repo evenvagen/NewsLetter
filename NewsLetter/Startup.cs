@@ -35,7 +35,7 @@ namespace NewsLetter
             var value = Configuration.GetConnectionString("NewsLetterDB");
             var connectionString = new ConnectionString(value);
 
-            services.AddControllers();
+            //services.AddControllers();
             services.AddSingleton(connectionString);
 
             services.AddControllers();
